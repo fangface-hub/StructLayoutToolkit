@@ -1,0 +1,71 @@
+name: Build Windows App, Zip and Sign with Cosign (OIDC)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  build-sign-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: |
+            pyproject.toml
+            uv.lock
+
+      - name: Set release tag from project version
+        id: rel
+        run: |
+          $projectVersion = python -c "import pathlib,tomllib;print(tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8-sig'))['project']['version'])"
+          echo "tag=v$projectVersion" >> $env:GITHUB_OUTPUT
+          echo "name=StructLayoutToolkit v$projectVersion" >> $env:GITHUB_OUTPUT
+
+      - name: Install LLVM/Clang
+        run: choco install llvm -y
+
+      - name: Add LLVM to PATH
+        run: echo "C:\Program Files\LLVM\bin" >> $env:GITHUB_PATH
+
+      - name: Build with Nuitka (LLVM/clang-cl)
+        run: |
+          uv sync --group build --no-dev
+          ./build_nuitka.ps1 -SkipUvSync
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign executable with OIDC
+        run: cosign sign-blob --yes --output-signature dist/launcher.dist/StructLayoutToolkit.exe.sig dist/launcher.dist/StructLayoutToolkit.exe
+
+      - name: Create ZIP
+        run: Compress-Archive -Path dist/launcher.dist -DestinationPath StructLayoutToolkit-windows.zip
+
+      - name: Sign ZIP with OIDC
+        run: cosign sign-blob --yes --output-signature StructLayoutToolkit-windows.zip.sig StructLayoutToolkit-windows.zip
+
+      - name: Publish Release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.rel.outputs.tag }}
+          name: ${{ steps.rel.outputs.name }}
+          draft: false
+          prerelease: true
+          overwrite_files: true
+          files: |
+            StructLayoutToolkit-windows.zip
+            StructLayoutToolkit-windows.zip.sig
