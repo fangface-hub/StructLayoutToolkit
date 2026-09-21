@@ -67,7 +67,9 @@ encoded, an error dialog is shown and the file is not saved.
 ### Type Definition menu
 
 - **Open StructLayout...** loads structure and enum definitions from JSON.
-- **Load Resource > PCAP** and **PCAPNG** load built-in layouts.
+- **Load Resource > PCAP**, **PCAPNG**, **PE**, and **ELF** load built-in layouts.
+  **PE** is for Windows executable files, and **ELF** is for Linux executable
+  files.
 - **Save StructLayout** and **Save StructLayout As...** save the active layout.
 - **Select Struct...** selects the root structure and re-decodes the data.
 - **Struct Definitions...** opens the StructDef Dict Editor.
@@ -136,7 +138,8 @@ checked from top to bottom, and the first matching rule is used.
 
 A condition can refer to `key`, `payload`, `ip_version`, `source`,
 `destination`, `protocol`, and `identification`. Conditions must be valid
-expressions supported by the layout expression evaluator.
+expressions supported by the layout expression evaluator. Enum values defined
+in the layout's EnumDefDict can also be used in conditions.
 
 The **Type Definition** menu selects the root structure or opens the StructDef
 and EnumDef editors for the selected rule. The **File** menu opens and saves the

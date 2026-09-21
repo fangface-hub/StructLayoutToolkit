@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>tmp26yqu9y8</title>
+  <title>tmp62t7kfqr</title>
   <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,8 +99,10 @@ saving</strong>、破棄するには <strong>Return without saving</strong>
 <ul>
 <li><strong>Open StructLayout…</strong> は構造体定義と列挙型定義を JSON
 から読み込みます。</li>
-<li><strong>Load Resource &gt; PCAP</strong> と <strong>PCAPNG</strong>
-は組み込みレイアウトを読み込みます。</li>
+<li><strong>Load Resource &gt;
+PCAP</strong>、<strong>PCAPNG</strong>、<strong>PE</strong>、<strong>ELF</strong>
+は組み込みレイアウトを 読み込みます。<strong>PE</strong> は Windows
+実行ファイル用、<strong>ELF</strong> は Linux 実行ファイル用 です。</li>
 <li><strong>Save StructLayout</strong> と <strong>Save StructLayout
 As…</strong> は使用中のレイアウトを 保存します。</li>
 <li><strong>Select Struct…</strong>
@@ -189,7 +191,8 @@ Definition Editor Window</h2>
 <code>key</code>、<code>payload</code>、<code>ip_version</code>、<code>source</code>、<code>destination</code>、<code>protocol</code>、
 <code>identification</code>
 を参照できます。条件には、レイアウトの式評価機能が対応している
-有効な式を指定する必要があります。</p>
+有効な式を指定する必要があります。レイアウトの EnumDefDict
+に定義した列挙値も 条件式で使用できます。</p>
 <p><strong>Type Definition</strong>
 メニューでは、ルート構造体の選択や、選択中のルールに対する StructDef
 および EnumDef エディターの表示ができます。<strong>File</strong>

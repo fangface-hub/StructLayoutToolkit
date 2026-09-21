@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>tmp4y1f8bia</title>
+  <title>tmp84iyeib4</title>
   <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,10 @@ nested JSON.</li>
 <ul>
 <li><strong>Open StructLayout…</strong> loads structure and enum
 definitions from JSON.</li>
-<li><strong>Load Resource &gt; PCAP</strong> and <strong>PCAPNG</strong>
-load built-in layouts.</li>
+<li><strong>Load Resource &gt; PCAP</strong>, <strong>PCAPNG</strong>,
+<strong>PE</strong>, and <strong>ELF</strong> load built-in layouts.
+<strong>PE</strong> is for Windows executable files, and
+<strong>ELF</strong> is for Linux executable files.</li>
 <li><strong>Save StructLayout</strong> and <strong>Save StructLayout
 As…</strong> save the active layout.</li>
 <li><strong>Select Struct…</strong> selects the root structure and
@@ -176,7 +178,9 @@ selected rule.</li>
 <p>A condition can refer to <code>key</code>, <code>payload</code>,
 <code>ip_version</code>, <code>source</code>, <code>destination</code>,
 <code>protocol</code>, and <code>identification</code>. Conditions must
-be valid expressions supported by the layout expression evaluator.</p>
+be valid expressions supported by the layout expression evaluator. Enum
+values defined in the layout’s EnumDefDict can also be used in
+conditions.</p>
 <p>The <strong>Type Definition</strong> menu selects the root structure
 or opens the StructDef and EnumDef editors for the selected rule. The
 <strong>File</strong> menu opens and saves the complete ordered rule

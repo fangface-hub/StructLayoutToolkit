@@ -67,7 +67,9 @@ Binary Viewer では、バイナリファイルを生のバイト列として、
 ### Type Definition メニュー
 
 - **Open StructLayout...** は構造体定義と列挙型定義を JSON から読み込みます。
-- **Load Resource > PCAP** と **PCAPNG** は組み込みレイアウトを読み込みます。
+- **Load Resource > PCAP**、**PCAPNG**、**PE**、**ELF** は組み込みレイアウトを
+  読み込みます。**PE** は Windows 実行ファイル用、**ELF** は Linux 実行ファイル用
+  です。
 - **Save StructLayout** と **Save StructLayout As...** は使用中のレイアウトを
   保存します。
 - **Select Struct...** はルート構造体を選択し、データを再度デコードします。
@@ -138,7 +140,8 @@ Packet Data Editor では、PCAP または PCAPNG キャプチャを開き、IP 
 
 条件では `key`、`payload`、`ip_version`、`source`、`destination`、`protocol`、
 `identification` を参照できます。条件には、レイアウトの式評価機能が対応している
-有効な式を指定する必要があります。
+有効な式を指定する必要があります。レイアウトの EnumDefDict に定義した列挙値も
+条件式で使用できます。
 
 **Type Definition** メニューでは、ルート構造体の選択や、選択中のルールに対する
 StructDef および EnumDef エディターの表示ができます。**File** メニューでは、順序を
