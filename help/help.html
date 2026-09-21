@@ -1,191 +1,239 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StructLayoutToolkit User Guide</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>tmp4y1f8bia</title>
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      box-sizing: border-box;
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 32px 24px 64px;
-      font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-    h1 { border-bottom: 2px solid #777; padding-bottom: 0.3em; }
-    h2 { border-bottom: 1px solid #999; padding-bottom: 0.2em; }
-    h2, h3 { margin-top: 2em; }
-    code {
-      padding: 0.1em 0.3em;
-      border-radius: 3px;
-      background: color-mix(in srgb, CanvasText 10%, Canvas);
-      font-family: Consolas, "Courier New", monospace;
-    }
-    li { margin: 0.35em 0; }
-  </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">:root {--step--2: 0.64rem;--step--1: 0.8rem;--step-0: 1rem;--step-1: 1.25rem;--step-2: 1.563rem;--step-3: 1.953rem;--step-4: 2.441rem;--step-5: 3.052rem;}h1 {font-size: var(--step-5);font-weight: 600;margin-top: 1.5em;margin-bottom: 0.75em;}h2 {font-size: var(--step-4);font-weight: 600;margin-top: 1.5em;margin-bottom: 0.75em;}h3 {font-size: var(--step-3);font-weight: 600;margin-top: 1.5em;margin-bottom: 0.75em;}h4 {font-size: var(--step-2);font-weight: 600;margin-top: 1.5em;margin-bottom: 0.75em;}h5 {font-size: var(--step-1);font-weight: 600;margin-top: 1.5em;margin-bottom: 0.75em;}h6 {font-size: var(--step-0);font-weight: 600;margin-top: 1.5em;margin-bottom: 0.75em;}body {font-size: var(--step-0);font-family:"MyricaM M", "Migu 1M", "Ricty Diminished","Hiragino Sans", "Yu Gothic", "Noto Sans JP","Helvetica Neue", "Segoe UI", "Roboto", "Noto Sans","Noto Sans SC", "Microsoft YaHei", "PingFang SC","Noto Sans TC", "PingFang TC", "Microsoft JhengHei","Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic","MeiryoKe_Console", "Consolas", "Menlo", "Ubuntu Mono","DejaVu Sans Mono", "Liberation Mono",monospace;line-height: 1.6;padding: 2rem;max-width: 1280px;margin: auto;background: #f8f9fa;color: #24292e;}code {font-size: var(--step-0);font-family:"MyricaM M", "Migu 1M", "Ricty Diminished","Hiragino Sans", "Yu Gothic", "Noto Sans JP","Helvetica Neue", "Segoe UI", "Roboto", "Noto Sans","Noto Sans SC", "Microsoft YaHei", "PingFang SC","Noto Sans TC", "PingFang TC", "Microsoft JhengHei","Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic","MeiryoKe_Console", "Consolas", "Menlo", "Ubuntu Mono","DejaVu Sans Mono", "Liberation Mono",monospace;color: black;background: lightyellow;padding: 2px 4px;border-radius: 4px;}pre code {font-size: var(--step-0);font-family:"MyricaM M", "Migu 1M", "Ricty Diminished","Hiragino Sans", "Yu Gothic", "Noto Sans JP","Helvetica Neue", "Segoe UI", "Roboto", "Noto Sans","Noto Sans SC", "Microsoft YaHei", "PingFang SC","Noto Sans TC", "PingFang TC", "Microsoft JhengHei","Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic","MeiryoKe_Console", "Consolas", "Menlo", "Ubuntu Mono","DejaVu Sans Mono", "Liberation Mono",monospace;color: black;background: lightyellow;padding: 0.5rem;display: block;border-radius: 6px;overflow-x: auto;}.sourceCode {font-size: var(--step-0);font-family:"MyricaM M", "Migu 1M", "Ricty Diminished","Hiragino Sans", "Yu Gothic", "Noto Sans JP","Helvetica Neue", "Segoe UI", "Roboto", "Noto Sans","Noto Sans SC", "Microsoft YaHei", "PingFang SC","Noto Sans TC", "PingFang TC", "Microsoft JhengHei","Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic","MeiryoKe_Console", "Consolas", "Menlo", "Ubuntu Mono","DejaVu Sans Mono", "Liberation Mono",monospace;color: black;background: lightyellow;padding: 0.5rem;display: block;border-radius: 6px;overflow-x: auto;}table {font-size: var(--step-0);border-collapse: collapse;margin: 1em 0;}table th {font-size: var(--step-0);background: lightgreen;border: 1px solid #000;padding: 0.5em 1em;}table td {font-size: var(--step-0);border: 1px solid #000;padding: 0.5em 1em;}blockquote {font-size: var(--step-0);border-left: 4px solid lightgray;padding-left: 1em;color: #6c757d;margin: 1em 0;}a:link {font-size: var(--step-0);color: #0066cc;}a:visited {font-size: var(--step-0);color: #551a8b;}a:hover {font-size: var(--step-0);color: #cc0000;}a:active {font-size: var(--step-0);color: #ff6600;}ul, ol {font-size: var(--step-0);padding-left: 2em;}hr {border: none;border-top: 1px solid #dee2e6;margin: 2em 0;}</style>
 </head>
 <body>
-<h1>StructLayoutToolkit User Guide</h1>
-<p>StructLayoutToolkit provides tools for viewing and editing binary files and
-reassembled packet payloads. Files are initially opened from your Documents
-folder. After you open or save a file, the application remembers the last used
-folder for that type of file.</p>
-<h2>Launcher Window</h2>
-<p>The launcher opens each editor in a separate process. Closing the launcher does
-not close editors that are already open.</p>
+<h1 id="structlayouttoolkit-user-guide">StructLayoutToolkit User
+Guide</h1>
+<p>StructLayoutToolkit provides tools for viewing and editing binary
+files and reassembled packet payloads. Files are initially opened from
+your Documents folder. After you open or save a file, the application
+remembers the last used folder for that type of file.</p>
+<h2 id="launcher-window">Launcher Window</h2>
+<p>The launcher opens each editor in a separate process. Closing the
+launcher does not close editors that are already open.</p>
 <ul>
 <li><strong>Binary Editor</strong> opens the Binary Viewer.</li>
-<li><strong>Packet Data Editor</strong> opens the Packet Data Editor.</li>
+<li><strong>Packet Data Editor</strong> opens the Packet Data
+Editor.</li>
 </ul>
 <p>You can open more than one editor at a time.</p>
-<h2>Binary Viewer Window</h2>
-<p>Use the Binary Viewer to inspect and modify a binary file either as raw bytes or
-as fields decoded by a StructLayout definition.</p>
-<h3>Binary editing workflow</h3>
-<ol>
-<li>To work with structured data, select <strong>Type Definition &gt; Open
-   StructLayout...</strong> or load the built-in PCAP or PCAPNG layout from <strong>Type
-   Definition &gt; Load Resource</strong>.</li>
-<li>Select <strong>File &gt; Open Binary...</strong> and choose a binary file. If necessary,
-   select the root structure used to decode it.</li>
+<h2 id="binary-viewer-window">Binary Viewer Window</h2>
+<p>Use the Binary Viewer to inspect and modify a binary file either as
+raw bytes or as fields decoded by a StructLayout definition.</p>
+<h3 id="binary-editing-workflow">Binary editing workflow</h3>
+<ol type="1">
+<li>To work with structured data, select <strong>Type Definition &gt;
+Open StructLayout…</strong> or load the built-in PCAP or PCAPNG layout
+from <strong>Type Definition &gt; Load Resource</strong>.</li>
+<li>Select <strong>File &gt; Open Binary…</strong> and choose a binary
+file. If necessary, select the root structure used to decode it.</li>
 <li>Edit values in the table.</li>
-<li>Select <strong>File &gt; Save Binary</strong> or <strong>Save Binary As...</strong> to encode and save the
-   current data.</li>
+<li>Select <strong>File &gt; Save Binary</strong> or <strong>Save Binary
+As…</strong> to encode and save the current data.</li>
 </ol>
-<p>Use <strong>File &gt; New Binary...</strong> to create a zero-filled binary value. When a
-structure is selected, its minimum required size is used. Without a structure,
-the viewer opens in raw binary mode.</p>
-<h3>Data table</h3>
-<p>The table displays offset, hexadecimal bytes, field name, type, value, and size.
-Nested structures can be expanded and collapsed.</p>
+<p>Use <strong>File &gt; New Binary…</strong> to create a zero-filled
+binary value. When a structure is selected, its minimum required size is
+used. Without a structure, the viewer opens in raw binary mode.</p>
+<h3 id="data-table">Data table</h3>
+<p>The table displays offset, hexadecimal bytes, field name, type,
+value, and size. Nested structures can be expanded and collapsed.</p>
 <ul>
-<li>In raw binary mode, edit the <strong>hex</strong> cells. Enter exactly the number of bytes
-  shown in that row, using hexadecimal digits with optional spaces.</li>
-<li>In structured mode, edit the <strong>value</strong> cells. Press Enter or move focus away
-  from the cell to apply the value.</li>
-<li>Right-click the <strong>hex</strong> cell of a <code>bytearray</code> field and select <strong>Open
-  BinaryEditorWindow</strong> to edit that field in a nested Binary Viewer. Use
-  <strong>Return with saving</strong> to apply the nested edits or <strong>Return without saving</strong>
-  to discard them.</li>
-<li>Change <strong>Bytes/row</strong> to control how raw bytes are grouped.</li>
-<li>Select <strong>Re-decode</strong> after changing definitions to decode the current bytes
-  again.</li>
+<li>In raw binary mode, edit the <strong>hex</strong> cells. Enter
+exactly the number of bytes shown in that row, using hexadecimal digits
+with optional spaces.</li>
+<li>In structured mode, edit the <strong>value</strong> cells. Press
+Enter or move focus away from the cell to apply the value.</li>
+<li>Right-click the <strong>hex</strong> cell of a
+<code>bytearray</code> field and select <strong>Open
+BinaryEditorWindow</strong> to edit that field in a nested Binary
+Viewer. Use <strong>Return with saving</strong> to apply the nested
+edits or <strong>Return without saving</strong> to discard them.</li>
+<li>Change <strong>Bytes/row</strong> to control how raw bytes are
+grouped.</li>
+<li>Select <strong>Re-decode</strong> after changing definitions to
+decode the current bytes again.</li>
 </ul>
-<p>If a value cannot be converted to the field type or the structure cannot be
-encoded, an error dialog is shown and the file is not saved.</p>
-<h3>File menu</h3>
+<p>If a value cannot be converted to the field type or the structure
+cannot be encoded, an error dialog is shown and the file is not
+saved.</p>
+<h3 id="file-menu">File menu</h3>
 <ul>
-<li><strong>Save Binary</strong> writes changes to the current binary file.</li>
-<li><strong>Save Binary As...</strong> writes the encoded data to another file.</li>
-<li><strong>Export to CSV...</strong> exports a flat list containing each field's nesting
-  level and path.</li>
-<li><strong>Export to JSON...</strong> exports the displayed field tree as nested JSON.</li>
+<li><strong>Save Binary</strong> writes changes to the current binary
+file.</li>
+<li><strong>Save Binary As…</strong> writes the encoded data to another
+file.</li>
+<li><strong>Export to CSV…</strong> exports a flat list containing each
+field’s nesting level and path.</li>
+<li><strong>Export to JSON…</strong> exports the displayed field tree as
+nested JSON.</li>
 <li><strong>Exit</strong> closes the Binary Viewer.</li>
 </ul>
-<h3>Type Definition menu</h3>
+<h3 id="type-definition-menu">Type Definition menu</h3>
 <ul>
-<li><strong>Open StructLayout...</strong> loads structure and enum definitions from JSON.</li>
-<li><strong>Load Resource &gt; PCAP</strong> and <strong>PCAPNG</strong> load built-in layouts.</li>
-<li><strong>Save StructLayout</strong> and <strong>Save StructLayout As...</strong> save the active layout.</li>
-<li><strong>Select Struct...</strong> selects the root structure and re-decodes the data.</li>
-<li><strong>Struct Definitions...</strong> opens the StructDef Dict Editor.</li>
-<li><strong>Enum Definitions...</strong> opens the EnumDef Dict Editor.</li>
+<li><strong>Open StructLayout…</strong> loads structure and enum
+definitions from JSON.</li>
+<li><strong>Load Resource &gt; PCAP</strong> and <strong>PCAPNG</strong>
+load built-in layouts.</li>
+<li><strong>Save StructLayout</strong> and <strong>Save StructLayout
+As…</strong> save the active layout.</li>
+<li><strong>Select Struct…</strong> selects the root structure and
+re-decodes the data.</li>
+<li><strong>Struct Definitions…</strong> opens the StructDef Dict
+Editor.</li>
+<li><strong>Enum Definitions…</strong> opens the EnumDef Dict
+Editor.</li>
 </ul>
-<h2>Packet Data Editor Window</h2>
-<p>Use the Packet Data Editor to open a PCAP or PCAPNG capture, reassemble IP
-fragments, inspect packet payloads, and save edited capture data.</p>
-<h3>Packet editing workflow</h3>
-<ol>
-<li>Select <strong>File &gt; Open Capture...</strong> and choose a <code>.pcap</code> or <code>.pcapng</code> file.</li>
+<h2 id="packet-data-editor-window">Packet Data Editor Window</h2>
+<p>Use the Packet Data Editor to open a PCAP or PCAPNG capture,
+reassemble IP fragments, inspect packet payloads, and save edited
+capture data.</p>
+<h3 id="packet-editing-workflow">Packet editing workflow</h3>
+<ol type="1">
+<li>Select <strong>File &gt; Open Capture…</strong> and choose a
+<code>.pcap</code> or <code>.pcapng</code> file.</li>
 <li>Select a packet in <strong>Reassembled packets</strong>.</li>
-<li>To decode payload fields, open <strong>Packet Definition &gt; Payload Struct
-   Definitions...</strong> and configure one or more matching definitions.</li>
-<li>Edit the packet's hex data or a decoded field value.</li>
-<li>Select <strong>File &gt; Save Capture</strong> or <strong>Save Capture As...</strong>.</li>
+<li>To decode payload fields, open <strong>Packet Definition &gt;
+Payload Struct Definitions…</strong> and configure one or more matching
+definitions.</li>
+<li>In the lower pane, edit the packet’s hex data or a decoded field
+value.</li>
+<li>Select <strong>File &gt; Save Capture</strong> or <strong>Save
+Capture As…</strong>.</li>
 </ol>
-<h3>Reassembled packets pane</h3>
-<p>The upper pane lists packet number, timestamp, IP version, source, destination,
-protocol, identification, payload length, reassembly status, and payload bytes.</p>
+<h3 id="reassembled-packets-pane">Reassembled packets pane</h3>
+<p>The upper pane lists packet number, timestamp, IP version, source,
+destination, protocol, identification, payload length, reassembly
+status, and payload bytes.</p>
 <ul>
-<li>A <strong>Complete</strong> packet can be edited in the <strong>Hex</strong> column.</li>
-<li>An <strong>Incomplete</strong> packet is read-only because all fragments are not available.</li>
-<li>When a packet contains multiple fragments, expand it to inspect each fragment.
-  Fragment rows are read-only.</li>
-<li>Editing a reassembled payload updates the corresponding bytes in the capture.</li>
+<li>Select a <strong>Complete</strong> packet to display and edit its
+payload in the lower pane. All columns in the upper pane are
+read-only.</li>
+<li>An <strong>Incomplete</strong> packet is read-only because all
+fragments are not available.</li>
+<li>When a packet contains multiple fragments, expand it to inspect each
+fragment. Fragment rows are read-only.</li>
 </ul>
-<h3>Decoded packet data pane</h3>
-<p>The lower pane displays the selected complete packet using the first matching
-payload structure definition. If no definition matches, the header displays
-<strong>Payload: Hex only</strong>.</p>
-<p>Edit a field in the <strong>value</strong> column and press Enter or move focus away to apply
-it. The payload is re-encoded, the capture bytes are updated, and the packet is
-decoded again. Other columns and nested structure rows are read-only.</p>
-<h3>File and definition menus</h3>
+<h3 id="decoded-packet-data-pane">Decoded packet data pane</h3>
+<p>The lower pane displays and edits the payload of the selected
+complete packet. If no payload structure definition matches, the header
+displays <strong>Payload: Hex only</strong>. Edit the
+<strong>hex</strong> column, entering exactly the number of bytes shown
+in the row. Use <strong>Bytes/row</strong> to change how the payload
+bytes are grouped. All other columns are read-only in this mode.</p>
+<p>When a definition matches, the payload is decoded using the first
+matching definition. Edit a field in the <strong>value</strong> column
+and press Enter or move focus away to apply it. The payload is
+re-encoded, the capture bytes are updated, and the packet is decoded
+again. The <strong>hex</strong> column and nested structure rows are
+read-only, as are the other non-value columns.</p>
+<h3 id="file-and-definition-menus">File and definition menus</h3>
 <ul>
-<li><strong>Open Capture...</strong> opens PCAP and PCAPNG files.</li>
+<li><strong>Open Capture…</strong> opens PCAP and PCAPNG files.</li>
 <li><strong>Save Capture</strong> overwrites the current capture.</li>
-<li><strong>Save Capture As...</strong> saves it to another PCAP or PCAPNG file.</li>
-<li><strong>Payload Struct Definitions...</strong> opens the ordered payload matching rules.</li>
+<li><strong>Save Capture As…</strong> saves it to another PCAP or PCAPNG
+file.</li>
+<li><strong>Payload Struct Definitions…</strong> opens the ordered
+payload matching rules.</li>
 <li><strong>Exit</strong> closes the Packet Data Editor.</li>
 </ul>
-<h2>Payload Struct Definition Editor Window</h2>
-<p>This window maps packet conditions to StructLayout definitions. Rules are
-checked from top to bottom, and the first matching rule is used.</p>
-<h3>Managing rules</h3>
+<h2 id="payload-struct-definition-editor-window">Payload Struct
+Definition Editor Window</h2>
+<p>This window maps packet conditions to StructLayout definitions. Rules
+are checked from top to bottom, and the first matching rule is used.</p>
+<h3 id="managing-rules">Managing rules</h3>
 <ul>
-<li><strong>Add</strong> creates a rule with the condition <code>True</code>.</li>
+<li><strong>Add</strong> creates a rule with the condition
+<code>True</code>.</li>
 <li><strong>Remove</strong> deletes the selected rule.</li>
-<li><strong>Move Up</strong> and <strong>Move Down</strong> change matching priority.</li>
-<li>Select a row to edit its condition and root structure, then select <strong>Update</strong>
-  to apply those values to the row.</li>
-<li><strong>Load StructLayout...</strong> loads a JSON layout into the selected rule.</li>
+<li><strong>Move Up</strong> and <strong>Move Down</strong> change
+matching priority.</li>
+<li>Select a row to edit its condition and root structure, then select
+<strong>Update</strong> to apply those values to the row.</li>
+<li><strong>Load StructLayout…</strong> loads a JSON layout into the
+selected rule.</li>
 </ul>
-<p>A condition can refer to <code>key</code>, <code>payload</code>, <code>ip_version</code>, <code>source</code>,
-<code>destination</code>, <code>protocol</code>, and <code>identification</code>. Conditions must be valid
-expressions supported by the layout expression evaluator.</p>
-<p>The <strong>Type Definition</strong> menu selects the root structure or opens the StructDef
-and EnumDef editors for the selected rule. The <strong>File</strong> menu opens and saves the
-complete ordered rule list as JSON. Closing the window keeps the current rules
-in the Packet Data Editor; use <strong>Save</strong> when the rules must also be stored in a
-file.</p>
-<h2>StructDef Dict Editor Window</h2>
-<p>This window edits the structures contained in the active StructLayout.</p>
-<h3>Structures</h3>
+<p>A condition can refer to <code>key</code>, <code>payload</code>,
+<code>ip_version</code>, <code>source</code>, <code>destination</code>,
+<code>protocol</code>, and <code>identification</code>. Conditions must
+be valid expressions supported by the layout expression evaluator.</p>
+<p>The <strong>Type Definition</strong> menu selects the root structure
+or opens the StructDef and EnumDef editors for the selected rule. The
+<strong>File</strong> menu opens and saves the complete ordered rule
+list as JSON. Closing the window keeps the current rules in the Packet
+Data Editor; use <strong>Save</strong> when the rules must also be
+stored in a file.</p>
+<h2 id="structdef-dict-editor-window">StructDef Dict Editor Window</h2>
+<p>This window edits the structures contained in the active
+StructLayout.</p>
+<h3 id="structures">Structures</h3>
 <ul>
-<li><strong>Add Struct</strong> and <strong>Remove Struct</strong> manage the structure list.</li>
+<li><strong>Add Struct</strong> and <strong>Remove Struct</strong>
+manage the structure list.</li>
 <li>Select a structure to edit its name and description.</li>
-<li>Select <strong>Update Meta</strong> to apply name or description changes.</li>
+<li>Select <strong>Update Meta</strong> to apply name or description
+changes.</li>
 </ul>
-<h3>Fields</h3>
+<h3 id="fields">Fields</h3>
 <ul>
-<li><strong>Add Field</strong>, <strong>Insert Field</strong>, and <strong>Remove Field</strong> manage fields.</li>
-<li><strong>Shift Offset</strong> moves the offsets of the selected fields by a byte and bit
-  amount.</li>
-<li><strong>Update Multi-line Size</strong> assigns a size to all selected fields.</li>
-<li><strong>Initial Size</strong> and the adjacent type selector set defaults for new fields.</li>
-<li>Edit cells directly to change <code>name</code>, <code>offset</code>, <code>size</code>, <code>type</code>, <code>scale</code>,
-  <code>repeat</code>, <code>description</code>, <code>range_expression</code>, <code>enum_def_name</code>, and
-  <code>byte_swap</code>.</li>
+<li><strong>Add Field</strong>, <strong>Insert Field</strong>, and
+<strong>Remove Field</strong> manage fields.</li>
+<li><strong>Shift Offset</strong> moves the offsets of the selected
+fields by a byte and bit amount.</li>
+<li><strong>Update Multi-line Size</strong> assigns a size to all
+selected fields.</li>
+<li><strong>Initial Size</strong> and the adjacent type selector set
+defaults for new fields.</li>
+<li>Edit cells directly to change <code>name</code>,
+<code>offset</code>, <code>size</code>, <code>type</code>,
+<code>scale</code>, <code>repeat</code>, <code>description</code>,
+<code>range_expression</code>, <code>enum_def_name</code>, and
+<code>byte_swap</code>.</li>
 </ul>
-<p>Offsets and sizes accept <code>byte,bit</code> values such as <code>1,3</code>. They may also use
-layout expressions where supported. Select <strong>Update</strong> to apply all definitions
-to the parent layout, or <strong>Cancel</strong> to discard changes made in this window.</p>
-<h2>EnumDef Dict Editor Window</h2>
+<p>Offsets and sizes accept <code>byte,bit</code> values such as
+<code>1,3</code>. They may also use layout expressions where supported.
+Select <strong>Update</strong> to apply all definitions to the parent
+layout, or <strong>Cancel</strong> to discard changes made in this
+window.</p>
+<h2 id="enumdef-dict-editor-window">EnumDef Dict Editor Window</h2>
 <p>This window edits named integer values used by fields in the active
 StructLayout.</p>
 <ul>
-<li><strong>Add Enum</strong> and <strong>Remove Enum</strong> manage enum definitions.</li>
-<li>Edit the selected enum's name and description, then select <strong>Update Meta</strong>.</li>
-<li><strong>Add Value</strong> appends a value using <strong>Start Value</strong> as the starting point.</li>
-<li><strong>Insert Value</strong> inserts a value before the selected row.</li>
-<li><strong>Shift Value</strong> adds or subtracts an amount from selected values.</li>
+<li><strong>Add Enum</strong> and <strong>Remove Enum</strong> manage
+enum definitions.</li>
+<li>Edit the selected enum’s name and description, then select
+<strong>Update Meta</strong>.</li>
+<li><strong>Add Value</strong> appends a value using <strong>Start
+Value</strong> as the starting point.</li>
+<li><strong>Insert Value</strong> inserts a value before the selected
+row.</li>
+<li><strong>Shift Value</strong> adds or subtracts an amount from
+selected values.</li>
 <li><strong>Remove Value</strong> deletes selected rows.</li>
 <li>Edit value names and integer values directly in the table.</li>
 </ul>
-<p>Select <strong>Update</strong> to apply all enum definitions to the parent layout, or
-<strong>Cancel</strong> to discard changes made in this window.</p>
+<p>Select <strong>Update</strong> to apply all enum definitions to the
+parent layout, or <strong>Cancel</strong> to discard changes made in
+this window.</p>
 </body>
 </html>

@@ -146,7 +146,7 @@ wheels = [
 
 [[package]]
 name = "sltgui"
-version = "1.0.1"
+version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "lupa" },
@@ -156,9 +156,9 @@ dependencies = [
     { name = "tkinterex" },
     { name = "treeviewex" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/71/0d/30c97143c1999612d433389077a0d443ae30901e21de4922c078363ec02f/sltgui-1.0.1.tar.gz", hash = "sha256:7e1e07becf9b7e3c073ad7be9096236b7d7ca25aa88a02827babcc32b4455db7", size = 114895, upload-time = "2026-09-20T02:34:57.82Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/4c/1e74220c955084c1bb90f43e4fdc9667612e4078a33c55fbb4950f3f1aa7/sltgui-1.1.0.tar.gz", hash = "sha256:9b2edc22881cf20118de42120f531f3fa71e9b2db6ac4190f1deb6cb415b7783", size = 116856, upload-time = "2026-09-21T02:39:14.484Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/7f/305821e9896c185cb19612b4f7ebef1004eff5ac973d3262e36b5ea808c4/sltgui-1.0.1-py3-none-any.whl", hash = "sha256:7eea31dda25d62b04eb4952ebf9c3cd71cfc4f64972855bef21fb719c7164a4d", size = 55046, upload-time = "2026-09-20T02:34:56.653Z" },
+    { url = "https://files.pythonhosted.org/packages/20/5d/d408831f74e6c2fa19b7046a9be27d0a001d50d60bc5c0f7fde413a31b9a/sltgui-1.1.0-py3-none-any.whl", hash = "sha256:c09f67b121055c8ed86ad66ae12876da820a42b82cfe13f331c1184a5ba995b7", size = 56941, upload-time = "2026-09-21T02:39:13.214Z" },
 ]
 
 [[package]]
@@ -178,7 +178,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "sltgui", specifier = ">=1.0.1" }]
+requires-dist = [{ name = "sltgui", specifier = ">=1.1.0" }]
 
 [package.metadata.requires-dev]
 build = [{ name = "nuitka", specifier = ">=4.1.3" }]

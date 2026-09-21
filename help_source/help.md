@@ -84,7 +84,7 @@ fragments, inspect packet payloads, and save edited capture data.
 2. Select a packet in **Reassembled packets**.
 3. To decode payload fields, open **Packet Definition > Payload Struct
    Definitions...** and configure one or more matching definitions.
-4. Edit the packet's hex data or a decoded field value.
+4. In the lower pane, edit the packet's hex data or a decoded field value.
 5. Select **File > Save Capture** or **Save Capture As...**.
 
 ### Reassembled packets pane
@@ -92,21 +92,25 @@ fragments, inspect packet payloads, and save edited capture data.
 The upper pane lists packet number, timestamp, IP version, source, destination,
 protocol, identification, payload length, reassembly status, and payload bytes.
 
-- A **Complete** packet can be edited in the **Hex** column.
+- Select a **Complete** packet to display and edit its payload in the lower
+  pane. All columns in the upper pane are read-only.
 - An **Incomplete** packet is read-only because all fragments are not available.
 - When a packet contains multiple fragments, expand it to inspect each fragment.
   Fragment rows are read-only.
-- Editing a reassembled payload updates the corresponding bytes in the capture.
 
 ### Decoded packet data pane
 
-The lower pane displays the selected complete packet using the first matching
-payload structure definition. If no definition matches, the header displays
-**Payload: Hex only**.
+The lower pane displays and edits the payload of the selected complete packet.
+If no payload structure definition matches, the header displays **Payload: Hex
+only**. Edit the **hex** column, entering exactly the number of bytes shown in
+the row. Use **Bytes/row** to change how the payload bytes are grouped. All
+other columns are read-only in this mode.
 
-Edit a field in the **value** column and press Enter or move focus away to apply
-it. The payload is re-encoded, the capture bytes are updated, and the packet is
-decoded again. Other columns and nested structure rows are read-only.
+When a definition matches, the payload is decoded using the first matching
+definition. Edit a field in the **value** column and press Enter or move focus
+away to apply it. The payload is re-encoded, the capture bytes are updated, and
+the packet is decoded again. The **hex** column and nested structure rows are
+read-only, as are the other non-value columns.
 
 ### File and definition menus
 
