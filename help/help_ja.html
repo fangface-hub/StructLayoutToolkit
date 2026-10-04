@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>tmp62t7kfqr</title>
+  <title>tmp51k2y_ii</title>
   <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,6 +170,20 @@ Hex only</strong> と 表示されます。<strong>hex</strong>
 は順序付きのペイロード照合ルールを開きます。</li>
 <li><strong>Exit</strong> は Packet Data Editor を閉じます。</li>
 </ul>
+<h3 id="payload-list-view-とエクスポート">Payload List View
+とエクスポート</h3>
+<p><strong>View &gt; PayloadListView</strong>
+を選択すると、ペイロード条件に一致するパケットの
+読み取り専用一覧が開きます。一覧から条件を選択すると、その条件に一致する完全な
+パケットが一行ずつ表示されます。パケット情報に続いて、デコードされた各フィールドが
+列として表示されます。ネストしたフィールド名は <code>parent.child</code>
+のように表示されます。
+一覧の収集時にはデコードの進捗が表示されます。</p>
+<p><strong>File &gt; Export PayloadList</strong>
+を選択して出力先フォルダーを指定すると、ペイロード条件 ごとに一つの CSV
+ファイルが出力されます。各ファイルの列は一覧画面と同じです。 ファイルは
+BOM なし UTF-8
+で保存され、同名のファイルがある場合は上書きされます。</p>
 <h2 id="payload-struct-definition-editor-window">Payload Struct
 Definition Editor Window</h2>
 <p>このウィンドウでは、パケットの条件を StructLayout

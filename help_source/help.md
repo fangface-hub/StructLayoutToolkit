@@ -122,6 +122,19 @@ read-only, as are the other non-value columns.
 - **Payload Struct Definitions...** opens the ordered payload matching rules.
 - **Exit** closes the Packet Data Editor.
 
+### Payload List View and Export
+
+Select **View > PayloadListView** to open a read-only list of packets matching
+a payload condition. Choose a condition from the list to display each matching
+complete packet in one row, with packet information followed by a column for
+each decoded field. Nested fields use dotted names such as `parent.child`.
+Decoding progress is shown while the list is collected.
+
+Select **File > Export PayloadList** and choose an output folder to export one
+CSV file per payload condition. Each file uses the same columns as the list
+view, is encoded as UTF-8 without a BOM, and overwrites an existing file with
+the same name.
+
 ## Payload Struct Definition Editor Window
 
 This window maps packet conditions to StructLayout definitions. Rules are

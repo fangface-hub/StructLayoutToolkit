@@ -125,6 +125,18 @@ Packet Data Editor では、PCAP または PCAPNG キャプチャを開き、IP 
 - **Payload Struct Definitions...** は順序付きのペイロード照合ルールを開きます。
 - **Exit** は Packet Data Editor を閉じます。
 
+### Payload List View とエクスポート
+
+**View > PayloadListView** を選択すると、ペイロード条件に一致するパケットの
+読み取り専用一覧が開きます。一覧から条件を選択すると、その条件に一致する完全な
+パケットが一行ずつ表示されます。パケット情報に続いて、デコードされた各フィールドが
+列として表示されます。ネストしたフィールド名は `parent.child` のように表示されます。
+一覧の収集時にはデコードの進捗が表示されます。
+
+**File > Export PayloadList** を選択して出力先フォルダーを指定すると、ペイロード条件
+ごとに一つの CSV ファイルが出力されます。各ファイルの列は一覧画面と同じです。
+ファイルは BOM なし UTF-8 で保存され、同名のファイルがある場合は上書きされます。
+
 ## Payload Struct Definition Editor Window
 
 このウィンドウでは、パケットの条件を StructLayout 定義に対応付けます。ルールは
