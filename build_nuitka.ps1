@@ -20,6 +20,8 @@ try {
         '--enable-plugin=tk-inter',
         '--include-package=sltgui',
         '--include-package-data=sltgui',
+        '--include-package=sltmodel',
+        '--include-package-data=sltmodel',
         '--include-package=lupa',
         "--include-data-dir=$helpDir=help",
         "--include-data-dir=$pluginsDir=plugins",

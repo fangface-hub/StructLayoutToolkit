@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>tmp84iyeib4</title>
+  <title>tmp37cbt40w</title>
   <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -159,6 +159,17 @@ file.</li>
 payload matching rules.</li>
 <li><strong>Exit</strong> closes the Packet Data Editor.</li>
 </ul>
+<h3 id="payload-list-view-and-export">Payload List View and Export</h3>
+<p>Select <strong>View &gt; PayloadListView</strong> to open a read-only
+list of packets matching a payload condition. Choose a condition from
+the list to display each matching complete packet in one row, with
+packet information followed by a column for each decoded field. Nested
+fields use dotted names such as <code>parent.child</code>. Decoding
+progress is shown while the list is collected.</p>
+<p>Select <strong>File &gt; Export PayloadList</strong> and choose an
+output folder to export one CSV file per payload condition. Each file
+uses the same columns as the list view, is encoded as UTF-8 without a
+BOM, and overwrites an existing file with the same name.</p>
 <h2 id="payload-struct-definition-editor-window">Payload Struct
 Definition Editor Window</h2>
 <p>This window maps packet conditions to StructLayout definitions. Rules
