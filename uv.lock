@@ -66,9 +66,9 @@ wheels = [
 
 [[package]]
 name = "nuitka"
-version = "4.2.1"
+version = "4.2.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/c7/ce/38409fc853cc26d86ab71ccd53f7dfddbc7a84d4821b9b54db428b35779b/nuitka-4.2.1.tar.gz", hash = "sha256:815c6e571a7a6424af384fe9d95d4ba38f1634d39a5515e8094d7fbfa090cbcb", size = 4632551, upload-time = "2026-09-05T08:08:19.117Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/75/27/9fef9381e967c333c808d8b087ca2cca713d608647a638d962f34ea22a45/nuitka-4.2.2.tar.gz", hash = "sha256:29c1bfb6f53154e620b38cf6167cbb03f54043f6e08ef7d3f2d5080a95df7e0d", size = 4635975, upload-time = "2026-09-22T14:25:53.659Z" }
 
 [[package]]
 name = "packaging"
@@ -124,15 +124,15 @@ wheels = [
 
 [[package]]
 name = "sltcodec"
-version = "2.7.0"
+version = "2.7.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "sltcalc" },
     { name = "sltcore" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b7/a7/c392916e359f59bd58c4caafbfd43a6b8291d77417a74b6ea8c9defe0299/sltcodec-2.7.0.tar.gz", hash = "sha256:569ab9fc62fbdc4eb9b327ae45e909d9a79cbf536d55aad41eb57d660bb31804", size = 33256, upload-time = "2026-10-05T15:01:59.241Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a6/1f/a63277bd2787deffdcbc163aeaf00e401abfa984e4c072eeef4d3ec0caf2/sltcodec-2.7.2.tar.gz", hash = "sha256:5a3003df73a76fc8e02aefca69a63d8d8fbf68a3db4632c04749deb2965cb929", size = 33694, upload-time = "2026-10-06T14:38:42.808Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2b/d2/3bf1a5cb6bcdbe7c2c3ec0a00a9609288badb49fa319750801bc915ed872/sltcodec-2.7.0-py3-none-any.whl", hash = "sha256:2f3a58b0d15d2c47e0bbc43fd8daf65aa36284029474f28d111fa98cde80545b", size = 18207, upload-time = "2026-10-05T15:01:58.035Z" },
+    { url = "https://files.pythonhosted.org/packages/2f/ce/beaffbfa54000b55e1a74183cf169a48a709f611afb349db2d61be0a922f/sltcodec-2.7.2-py3-none-any.whl", hash = "sha256:ecaffecf996d31008287068d111faf3b58890feb6a5f2dc79d7db05bdbbaa911", size = 18257, upload-time = "2026-10-06T14:38:41.623Z" },
 ]
 
 [[package]]
@@ -146,7 +146,7 @@ wheels = [
 
 [[package]]
 name = "sltgui"
-version = "1.5.1"
+version = "1.5.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "lupa" },
@@ -157,28 +157,28 @@ dependencies = [
     { name = "tkinterex" },
     { name = "treeviewex" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/98/94/c7338fd64b459ebce92e32f9f9c17ba3c9ac613fbfa5aab0c5ebf9239971/sltgui-1.5.1.tar.gz", hash = "sha256:e876c2e8eb52ab64a0ddffd8fba9ca6571bd52ba471b71a8609d886355487e18", size = 108949, upload-time = "2026-10-05T15:32:58.059Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bb/bc/e006e0cb55b587e5413e792bf8ef451244543b5f9d0d719e8d8468c49445/sltgui-1.5.2.tar.gz", hash = "sha256:816e2219ff6d9828d66c5612b2fa25c1bf7a949b5f69ba5ea6417ab96ffe39db", size = 108970, upload-time = "2026-10-06T14:59:26.997Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a0/38/75aaf3546ced268de6b8f22eae5c24c3800c241699a318f2a664fe7ae387/sltgui-1.5.1-py3-none-any.whl", hash = "sha256:ec0f511aba1539eadc83155ca08e49b1c38edc257f570b0559426b7c150b10d6", size = 48540, upload-time = "2026-10-05T15:32:56.453Z" },
+    { url = "https://files.pythonhosted.org/packages/19/be/663149b2f012135b9b7c9c3d86f44afcd14a96537a3b94cb50861ca8c45f/sltgui-1.5.2-py3-none-any.whl", hash = "sha256:cbba761b78c4074cfd87ab6918859a118fe41b390aaccd51e011c97d221de3b4", size = 48547, upload-time = "2026-10-06T14:59:25.792Z" },
 ]
 
 [[package]]
 name = "sltmodel"
-version = "1.0.0"
+version = "1.0.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "sltcalc" },
     { name = "sltcodec" },
     { name = "sltcore" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ea/c4/476f27d3cf7707355a4207f672f489872063a302fc58876f41e02dc932da/sltmodel-1.0.0.tar.gz", hash = "sha256:ba67206af3062dabd1069bc8f8cd380142cf773162ebc5d0e2806d91b2c9ac40", size = 23573, upload-time = "2026-10-05T15:14:29.079Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f7/b5/df4029089fb70ff1da48e13007b18abdfb748ae9d05a31d8ea18d0e084c9/sltmodel-1.0.3.tar.gz", hash = "sha256:a30f180d2b843782c6d0a51e526a99fabc8c6492e632776797aa90e15f561ac2", size = 23903, upload-time = "2026-10-06T14:53:40.772Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/b2/6fd2dcb39f6ddc304af840c75b28aa7382a26073643c33d916c2691a9d69/sltmodel-1.0.0-py3-none-any.whl", hash = "sha256:76d357ef07e34a8b3e0dd733e4f2742de639552f90eb381db7126941d17697b9", size = 18545, upload-time = "2026-10-05T15:14:28.059Z" },
+    { url = "https://files.pythonhosted.org/packages/24/cb/6b446801f7eb963ae7860881d08dfb4c18673a3ac0db81deee714cbc65f1/sltmodel-1.0.3-py3-none-any.whl", hash = "sha256:21e20d634a9d6be55343f8b3eaf99f61a5db94ea7b15e1fd0c5e3672d9359dff", size = 18551, upload-time = "2026-10-06T14:53:39.697Z" },
 ]
 
 [[package]]
 name = "struct-layout-toolkit-launcher"
-version = "1.2.0"
+version = "1.2.1"
 source = { editable = "." }
 dependencies = [
     { name = "sltgui" },
@@ -193,7 +193,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "sltgui", specifier = ">=1.5.1" }]
+requires-dist = [{ name = "sltgui", specifier = ">=1.5.2" }]
 
 [package.metadata.requires-dev]
 build = [{ name = "nuitka", specifier = ">=4.1.3" }]

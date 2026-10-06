@@ -1,3 +1,3 @@
 """Application version shared with release tooling."""
 
-PROJECT_FALLBACK_VERSION = "1.2.1"
+PROJECT_FALLBACK_VERSION = "1.2.2"
