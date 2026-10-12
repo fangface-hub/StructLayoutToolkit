@@ -1,12 +1,12 @@
 [project]
 name = "struct-layout-toolkit-launcher"
-version = "1.2.3"
+version = "1.3.0"
 description = "Launcher for the StructLayoutToolkit binary and packet data editors"
 readme = "README.md"
 requires-python = ">=3.14"
 license = "MIT"
 dependencies = [
-    "sltgui>=1.5.3",
+    "sltgui>=2.0.0",
 ]
 
 [project.gui-scripts]
